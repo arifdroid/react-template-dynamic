@@ -10,7 +10,15 @@ const Logo = styled.div`
   flex-shrink: 0;
 
   h1 {
-    margin-bottom: 0;
+    margin-bottom: 30;
+  }
+  form {
+    margin-bottom: 30;
+   
+  }
+
+  .check {
+    margin-bottom: 30;
   }
 `;
 

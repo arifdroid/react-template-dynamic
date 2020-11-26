@@ -6,6 +6,7 @@ const Content = styled('div')(({ theme }) => ({
   minHeight: '50%',
   overflowY: 'auto',
   zIndex: 1,
+  // justifyContent: 'center',
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',

@@ -13,6 +13,13 @@ const publicRoutes = [
         path:'/public/sign-in',
         loader: ()=>import('./auth/SignInPage')
     }
+    ,{
+        path:'/public/sample-page',
+        loader: ()=>import('./sample-page/SamplePage')
+    },{
+        path:'/public/sample-form-page',
+        loader: ()=>import('./sample-form-page/SampleFormPage')
+    }
 ].filter(Boolean)
 
 export default{
