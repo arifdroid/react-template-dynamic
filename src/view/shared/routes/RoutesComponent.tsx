@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import CustomLoadable from '../../CustomLoadable';
 import routes from '../../routes';
@@ -31,7 +31,7 @@ const RoutesComponent: React.FC = () => {
                         <PrivateRoutes
                             key={el.path}
                             path={el.path}
-                            exact={false}
+                            exact={true}
                             CustomComp={CustomLoadable({ loader: el.loader })}
 
                         ></PrivateRoutes>
@@ -40,7 +40,8 @@ const RoutesComponent: React.FC = () => {
 
                 }
 
-                <Route path='/public/now' render={() => <div>ola</div>}></Route>
+                <Redirect to='/public/sign-in'></Redirect>
+                {/* <Route path='/' render={() => <div>ola</div>}></Route> */}
             </Switch>
         </BrowserRouter>
     )

@@ -9,6 +9,9 @@ const publicRoutes = [
     {
         path:'/public',
         loader: ()=>import('./view-public/public_view')
+    },{
+        path:'/public/sign-in',
+        loader: ()=>import('./auth/SignInPage')
     }
 ].filter(Boolean)
 
