@@ -26,6 +26,7 @@ const InputForward = ({ type, name }:Props, ref:any ) => {
     console.log('\n\nInputForward ref passed  TYPED is ->', ref)
     // console.log('=====\n\n')
     return <TextField
+        
         type={type}
         name={name}
         variant='outlined' margin='normal'

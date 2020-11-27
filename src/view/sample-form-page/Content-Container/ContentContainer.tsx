@@ -5,12 +5,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme)=>({
     root:{
-        marginTop:theme.spacing(4),
+        marginTop:theme.spacing(10),
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
         backgroundColor:'#e5e5e5',
-        paddingBottom:100
+        paddingTop:100,
+       
+
     }
 }))
 

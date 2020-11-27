@@ -19,6 +19,9 @@ const publicRoutes = [
     },{
         path:'/public/sample-form-page',
         loader: ()=>import('./sample-form-page/SampleFormPage')
+    },{
+        path:'/public/sample-form-page-2',
+        loader: ()=>import('./sample-form-page-2/SampleFormPage2')
     }
 ].filter(Boolean)
 
