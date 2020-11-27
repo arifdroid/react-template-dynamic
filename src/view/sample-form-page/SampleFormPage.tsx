@@ -27,6 +27,8 @@ const schema = yup.object().shape({
 })
 
 
+//https://mariusschulz.com/blog/passing-generics-to-jsx-elements-in-typescript
+
 
 
 const SampleFormPage: React.FC = () => {

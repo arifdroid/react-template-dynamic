@@ -2,7 +2,6 @@ import React from 'react';
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 
-//https://www.youtube.com/watch?v=U-iz8b4RExA&ab_channel=MaksimIvanov
 
 const useStyles = makeStyles((theme)=>({
     root:{
