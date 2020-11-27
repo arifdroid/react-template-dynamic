@@ -16,6 +16,8 @@ const useStyles = makeStyles(() => ({
 
 const Input = forwardRef((props, ref) =>{ 
 
+    console.log('\n\nref passed ->', ref)
+
    return (<TextField variant='outlined' margin='normal' 
    inputRef={ref} {...props} />)})
 

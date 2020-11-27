@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme)=>({
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
-        backgroundColor:'coral',
+        backgroundColor:'#e5e5e5',
         paddingBottom:100
     }
 }))
