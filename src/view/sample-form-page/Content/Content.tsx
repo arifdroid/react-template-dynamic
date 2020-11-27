@@ -24,11 +24,32 @@ const Content = styled.div`
   font-size: calc(20px + 2vmin);
   color: white;
 
+
+  .sola {
+    height:10;
+    width:20;
+    background-color: green;
+
+  }
+
   h1 {
       color:yellow;
       font-size: calc(10px + 2vmin);
   }
 
+  div {
+    height:10;
+    width:20;
+    background-color: coral;
+
+  }
+  
+  .header-mu {
+    height:10;
+    width:20;
+    color: grey;
+    
+  }
   
 `
 
