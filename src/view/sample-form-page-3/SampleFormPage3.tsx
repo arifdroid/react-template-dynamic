@@ -8,6 +8,8 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers';
 import { useHistory } from 'react-router';
 import { useData } from '../../modules/fast-context/DataContext_copy';
+import FileInput from './file-input/FileInput';
+import PrimaryButton from '../sample-form-page/Primary-Button/PrimaryButton';
 
 
 interface Props{
@@ -26,32 +28,47 @@ const SampleFormPage2 =(props:Props)=>{
 
     const {setValues,data} = useData();
 
+    const {control, handleSubmit} = useForm({
+        defaultValues:{
+            files:data.files
+        }
+    })
+
     const history = useHistory();
 
-    console.log('\n====\n')
-    console.log('\n data', data)
-    console.log('\n====\n')
+    // console.log('\n====\n')
+    // console.log('\n data file uploaded ', data)
+    // console.log('\n====\n')
     
-    const {register, handleSubmit, errors} = useForm({
-        mode:'onBlur',
-        resolver: yupResolver(schema)
-    });
+
 
     const onSubmit_2 = (data:any)=>{
         setValues(data)
-        history.push('/public/sample-form-page-3')
+        history.push('/public/sample-form-page-4')
     }
 
     return (
         <ContentContainer>
-            <div>Form Page</div>
-            <Form onSubmit={handleSubmit(onSubmit_2)}>
-            <ForwardInput name='firstname' type='text' ref={register} error={!!errors.firstname} helperText={errors?.firstname?.message}></ForwardInput>
-            <ForwardInput name='surname' type='text' ref={register} error={!!errors.surname} helperText={errors?.surname?.message}></ForwardInput>
 
-            <Button >Next</Button>
+            <h1>Form Page 3 </h1>
+            <div>data = name {data.firstname} {data.surname} </div>
+            {/* <Form onSubmit={handleSubmit(onSubmit_2)}>
+            <ForwardInput name='firstname' type='text' ref={register} error={!!errors.firstname} helperText={errors?.firstname?.message}></ForwardInput>
+            <ForwardInput name='surname' type='text' ref={register} error={!!errors.surname} helperText={errors?.surname?.message}></ForwardInput> */}
+
+            {/* <Button >Next</Button>
                 
-            </Form>  
+            </Form>   */}
+
+            <FileInput name='files' control={control}></FileInput>
+
+            <Form onSubmit={handleSubmit(onSubmit_2)}>
+
+            
+            <PrimaryButton>Add Files</PrimaryButton>
+
+
+            </Form>
             
         </ContentContainer>
     )

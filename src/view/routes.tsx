@@ -22,6 +22,12 @@ const publicRoutes = [
     },{
         path:'/public/sample-form-page-2',
         loader: ()=>import('./sample-form-page-2/SampleFormPage2')
+    },{
+        path:'/public/sample-form-page-3',
+        loader: ()=>import('./sample-form-page-3/SampleFormPage3')
+    },{
+        path:'/public/sample-form-page-4',
+        loader: ()=>import('./sample-form-page-4/SampleFormPage4')
     }
 ].filter(Boolean)
 

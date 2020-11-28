@@ -16,6 +16,5 @@ export const DataProvider = ({children}:{children:any})=>{
 
 return <DataContext.Provider value={{data,setValues}}>{children}</DataContext.Provider>
 }
-// export default DataContext;
 
 export const useData = ()=> useContext(DataContext)
