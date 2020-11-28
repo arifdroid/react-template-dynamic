@@ -6,6 +6,8 @@ import ForwardInput from './Input/Input';
 import Button from './button/Button'
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers';
+import { useHistory } from 'react-router';
+import { useData } from '../../modules/fast-context/DataContext_copy';
 
 
 interface Props{
@@ -21,17 +23,28 @@ const schema = yup.object().shape({
 })
 
 const SampleFormPage2 =(props:Props)=>{
-    // console.log('apa ada dalam props', props)
 
+    const {setValues,data} = useData();
+
+    const history = useHistory();
+
+    console.log('\n====\n')
+    console.log('\n data', data)
+    console.log('\n====\n')
+    
     const {register, handleSubmit, errors} = useForm({
         mode:'onBlur',
         resolver: yupResolver(schema)
     });
 
+    const onSubmit_2 = (data:any)=>{
+        setValues(data)
+    }
+
     return (
         <ContentContainer>
             <div>Form Page</div>
-            <Form>
+            <Form onSubmit={handleSubmit(onSubmit_2)}>
             <ForwardInput name='firstname' type='text' ref={register} error={!!errors.firstname} helperText={errors?.firstname?.message}></ForwardInput>
             <ForwardInput name='surname' type='text' ref={register} error={!!errors.surname} helperText={errors?.surname?.message}></ForwardInput>
 

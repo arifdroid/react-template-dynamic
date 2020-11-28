@@ -10,14 +10,15 @@ const useStyles = makeStyles((theme)=>({
 }))
 
 interface Props{
-    children:any
+    children:any,
+    onSubmit:any
 }
 
-const Form = ({children,...props}:Props)=>{
+const Form = ({children,onSubmit,...props}:Props)=>{
 
     const styles = useStyles();
 
-    return <form className={styles.root} {...props}>{children}</form>
+    return <form className={styles.root} {...props} onSubmit={onSubmit}>{children}</form>
 }
 
 export default Form;
