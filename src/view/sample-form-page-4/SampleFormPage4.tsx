@@ -11,7 +11,7 @@ import { useData } from '../../modules/fast-context/DataContext_copy';
 import FileInput from './file-input/FileInput';
 import PrimaryButton from '../sample-form-page/Primary-Button/PrimaryButton';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
-
+import axios from 'axios';
 
 interface Props {
 
@@ -45,9 +45,9 @@ const SampleFormPage4 = (props: Props) => {
 
 
 
-    const onSubmit_2 = (data: any) => {
-        setValues(data)
-    }
+    // const onSubmit_2 = (data: any) => {
+    //     setValues(data)
+    // }
 
     const entries = Object.entries(data).filter((entry) => entry[0] !== "files");
     const { files } = data;
@@ -55,22 +55,60 @@ const SampleFormPage4 = (props: Props) => {
     const onSubmit = async () => {
         const formData = new FormData();
         if (data.files) {
-            data.files.forEach((file: any) => {
-                formData.append("files", file, file.name);
+            data.files.forEach((file: any, index:any) => {                
+                // console.log('file loop', file.name )
+                formData.append(`file_${index}`, file)
+                // console.log('log form data INSIDE', formData)
             });
         }
+        // entries.forEach((entry: any) => {
+        //     console.log('entry', entry)
+        //     formData.append(entry[0], entry[1]);
+        // });
 
-        entries.forEach((entry: any) => {
-            formData.append(entry[0], entry[1]);
-        });
+        // const formData = new FormData();
+        // formData.append('name', 'John');
+        // formData.append('password', 'John123')
 
-        const res = await fetch("http://localhost:4000/", {
+
+        // console.log('\n\nlog form data', formData)
+
+        // var formData = new FormData();
+        // formData.append('logo', "11");
+        // formData.append('meal_type', "22");
+        // formData.append('meal_name', "33");
+
+        // console.log(Object.keys(formData)); //[]
+        // console.log(JSON.stringify(formData)); //{}
+
+        //use iterator
+        // var formEntries = formData.entries();
+        //console.log(formEntries.next().value); 
+        //console.log(formEntries.next().value); 
+        //console.log(formEntries.next().value); 
+
+        //or simply use Array.from
+        // var formEntries = Array.from(formData.entries());
+        // console.log("formEntries ", formEntries);
+        // console.log("formData ", formData);
+        let url = 'http://localhost:8000/file-upload'
+
+        const res = await fetch(url, {
             method: "POST",
             body: formData,
         });
 
+        
+
+        // const res = await axios.post(url, formData, {
+        //     headers: {
+        //       'Content-Type': 'multipart/file-upload',
+        //     },
+        //   });
+
         if (res.status === 200) {
             // Swal.fire("Great job!", "You've passed the challenge!", "success");
+            alert('success upload')
             setSuccess(true);
         }
 
@@ -91,7 +129,7 @@ const SampleFormPage4 = (props: Props) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {entries.map((entry:any) => (
+                        {entries.map((entry: any) => (
                             <TableRow key={entry[0]}>
                                 <TableCell component="th" scope="row">
                                     {entry[0]}
@@ -104,7 +142,7 @@ const SampleFormPage4 = (props: Props) => {
             </TableContainer>
 
 
-            <Form onSubmit={handleSubmit(onSubmit_2)}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
 
 
                 <PrimaryButton>Upload All Data</PrimaryButton>
