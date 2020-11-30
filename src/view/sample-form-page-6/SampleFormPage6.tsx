@@ -8,7 +8,6 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers';
 import { useHistory } from 'react-router';
 import { useData } from '../../modules/fast-context/DataContext_copy';
-import FileInput from './file-input/FileInput';
 import PrimaryButton from '../sample-form-page/Primary-Button/PrimaryButton';
 import { Paper, TableCell, TableContainer, TableHead, TableRow, Table, TableBody } from '@material-ui/core';
 
@@ -145,8 +144,6 @@ const SampleFormPage5 = (props: Props) => {
 
 
     const onSubmit_2 = (data: any) => {
-
-        console.log('data form all', data)
         // setValues(data)
         // history.push('/public/sample-form-page-4')
     }
@@ -156,77 +153,7 @@ const SampleFormPage5 = (props: Props) => {
 
             <h1>Form Page 3 </h1>
             <div>data = name {data.firstname} {data.surname} </div>
-            {/* <Form onSubmit={handleSubmit(onSubmit_2)}>
-            <ForwardInput name='firstname' type='text' ref={register} error={!!errors.firstname} helperText={errors?.firstname?.message}></ForwardInput>
-            <ForwardInput name='surname' type='text' ref={register} error={!!errors.surname} helperText={errors?.surname?.message}></ForwardInput> */}
-
-            {/* <Button >Next</Button>
-                
-            </Form>   */}
-
-            {/* <FileInput name='files' control={control}></FileInput> */}
-            
-            {/* <TableContainer component={Paper}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell align='right' >Age</TableCell>
-                            <TableCell align='right' >File</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {entries.map((entry: any, index: any) => {
-
-                            console.log('entry single -> is', entry)
-
-                            return (
-                                <TableRow key={index}>
-                                    <TableCell component="th" scope="row">
-                                        {entry.name}
-                                    </TableCell>
-                                    <TableCell align="right">{entry.age}</TableCell>
-                                    <TableCell align="right"><FileInput index={index} name='files' control={control} ></FileInput></TableCell>
-                                </TableRow>
-                            )
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>  */}
-
-            <FileInput name='files' control={control} data={indexedData}></FileInput>
-
-            <br></br>
-            <br></br>
-            <br></br>
-{/* 
-            <TableContainer component={Paper}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell align='right' >Age</TableCell>
-                            <TableCell align='right' >File</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                {entries[0].name}
-                            </TableCell>
-                            <TableCell align="right">{entries[0].age}</TableCell>
-                            <TableCell align="right"><FileInput name='files' control={control} index={0}></FileInput></TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                {entries[1].name}
-                            </TableCell>
-                            <TableCell align="right">{entries[1].age}</TableCell>
-                            <TableCell align="right"><FileInput name='files' control={control_2} index={1}></FileInput></TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </TableContainer> */}
+           
 
 
             <Form onSubmit={handleSubmit(onSubmit_2)}>

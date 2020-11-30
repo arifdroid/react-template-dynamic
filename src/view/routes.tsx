@@ -31,6 +31,9 @@ const publicRoutes = [
     },{
         path:'/public/sample-form-page-5',
         loader: ()=>import('./sample-form-page-5-table-drop/SampleFormPage5')
+    },{
+        path:'/public/sample-form-page-7',
+        loader: ()=>import('./sample-form-page-7-custom-form-drop/SampleFormPage7')
     }
 ].filter(Boolean)
 
