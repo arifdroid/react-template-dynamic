@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ContentContainer from './content/ContentContainer';
 import Form from './Form/Form';
@@ -33,34 +33,44 @@ let entries_2 = {
             {
                 name:'jabatan_osc',
                 data: [
-                    { file_name: '', file: '' },
-                    { file_name: '', file: '' },
-                    { file_name: '', file: '' }]
+                    { file_name: 'surat permohonan', file: '' },
+                    { file_name: 'borang A', file: '' },
+                    { file_name: 'senarai semak', file: '' }]
             },
             {   
                 name:'jabatan_skm',
                 data: [
-                    { file_name: '', file: '' },
-                    { file_name: '', file: '' },
-                    { file_name: '', file: '' }]
+                    { file_name: 'surat permohonan', file: '' },
+                    { file_name: 'PE report', file: '' },
+                    { file_name: 'Borang inspection', file: '' }]
             },
             ,
             {   
                 name:'jabatan_bomba',
                 data: [
-                    { file_name: '', file: '' },
-                    { file_name: '', file: '' },
-                    { file_name: '', file: '' }]
+                    { file_name: 'surat permohohonan', file: '' },
+                    { file_name: 'pelan susunatur', file: '' },
+                    // { file_name: '', file: '' }
+                ]  
             }
         ]
     };
 
-
+interface IndexDataProps{
+    key:any,
+    file:any,
+    // prevState: null
+}
 
 
 const SampleFormPage5 = (props: Props) => {
 
     const { setValues, data } = useData();
+
+    // const [indexedData, setIndexedData] = useState(null);
+    // const [indexedData, setIndexedData] = useState(null);
+    const [indexedData, setIndexedData] = useState<IndexDataProps[]>([]);
+
 
     const { control, handleSubmit } = useForm({
         defaultValues: {
@@ -75,29 +85,48 @@ const SampleFormPage5 = (props: Props) => {
     })
 
 
+
+
     useEffect(() => {
 
 
-        let indexing_all_files_needed = [];
+        let indexing_all_files_needed : IndexDataProps[] = [];
 
         for(var j=0; j< entries_2.project_jabatan.length;j++){
 
-            // let first_indexing = entries_2.project_jabatan[j].map(el=>{
-            //     return{
-
-            //     }
-            // })
+            // matching key for each file is 
 
             let project_jabatan_this = entries_2.project_jabatan[j]?.data || []
 
             for(var k =0; k< project_jabatan_this?.length;k++ ){
-                
+                indexing_all_files_needed.push({key:`${entries_2.project_jabatan[j]?.name}_${project_jabatan_this[k].file_name}`, file:null})
+                // console.log('\n\nproject_jabatan data',project_jabatan_this[k].file_name ,'\n\n')
             }
 
         }
 
+        setIndexedData(indexing_all_files_needed)
+
 
     }, [])
+
+    useEffect(()=>{
+
+        if(indexedData){
+            console.log('indexedData',)
+
+            // for(var j=0; j< indexedData ; j++){
+                
+            // }
+
+            // const { control: control_2, handleSubmit: handleSubmit_2 } = useForm({
+            //     defaultValues: {
+            //         files: data.files
+            //     }
+            // })
+        }
+
+    },[indexedData])
 
     const history = useHistory();
 

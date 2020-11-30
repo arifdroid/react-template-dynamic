@@ -7,3 +7,5 @@
 
 
 //https://medium.com/developer-rants/uploading-form-fields-and-files-at-the-same-time-with-multer-node-js-typescript-c1a367eb8198
+
+//https://stackoverflow.com/questions/53338922/correct-way-to-type-nullable-state-when-using-reacts-usestate-hook
